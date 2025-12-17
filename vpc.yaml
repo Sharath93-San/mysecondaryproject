@@ -13,3 +13,18 @@ Resources:
     Properties:
       VpcId: !Ref myVPC
       AmazonProvidedIpv6CidrBlock: true
+  BackupVPC:
+    Type: AWS::EC2::VPC
+    Properties:
+      CidrBlock: 10.0.2.0/16
+      EnableDnsSupport: 'true'
+      EnableDnsHostnames: 'true'
+      Tags:
+       - Key: stack
+         Value: development
+  ipv6CidrBlock:
+    Type: AWS::EC2::VPCCidrBlock
+    Properties:
+      VpcId: !Ref myVPC
+      AmazonProvidedIpv6CidrBlock: true
+      
